@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-noto-sans);
+}
+
+/* .swiper-pagination {
+  bottom: 100px; /* Adjust to position the pagination at the bottom of the Swiper 
+} */
+
+/* Style the pagination circles (default size and color) */
+.swiper-pagination .swiper-pagination-bullet {
+  width: 10px; /* Default size */
+  height: 6px; /* Default size */
+  background-color: #c4d1d1; /* Default color */
+  opacity: 1;
+  transition: background-color 0.3s, transform 0.3s;
+  border-radius: 3px;
+}
+
+/* Style the active pagination circle */
+.swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #00aaa1; /* Change this to your desired color */
+  width: 25px; /* Larger size for active circle */
+  height: 6px; /* Larger size for active circle */
+  border-radius: 3px;
+  transform: scale(1.2); /* Slightly enlarge the active circle*/
+}
