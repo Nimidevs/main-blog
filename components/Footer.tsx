@@ -8,7 +8,7 @@ import { RiInstagramFill } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <footer className="bg-lightergreen px-[152px] pt-[70px] pb-5">
+    <footer className="bg-lightergreen px-[102px] pt-[70px] pb-5">
       <div className="flex justify-between">
         <div className="flex flex-col gap-6">
           <Image

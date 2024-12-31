@@ -47,3 +47,32 @@ body {
   border-radius: 3px;
   transform: scale(1.2); /* Slightly enlarge the active circle*/
 }
+
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.auth-side-image{
+  background-color: rgba(
+    181,
+    231,
+    229,
+    0.15
+   ); /*Use rgba to add opacity to the background color */
+  background-image: url("../assets/reading.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-blend-mode: multiply; /* Optional, to blend image and color */
+}

@@ -72,7 +72,7 @@ export default async function Home() {
       <Navbar />
       <main className="flex-1">
         <Herosection {...heroSectionProps} />
-        <div className="px-[152] py-20 grid grid-cols-1 md:grid-cols-3">
+        <div className="px-[102] py-20 grid grid-cols-1 md:grid-cols-3">
           <div className="md:col-span-2 ">
             <h1 className="font-semibold text-xl mb-14">
               <span className="bg-thickgreen text-white px-1">Recently</span>{" "}

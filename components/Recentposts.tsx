@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { Post } from "@/types/post.interface";
 import Posts from "./Posts";
 import React, { useState } from "react";
@@ -52,8 +53,10 @@ const Recentposts: React.FC<RecentPostsPropsType> = ({
         </div>
       ) : localRecentPosts && localRecentPosts?.length > 0 ? (
         <div className="flex flex-col gap-12">
-          {localRecentPosts.map((post, index) => (
-            <Posts key={`post${index}`} post={post} />
+          {localRecentPosts.map((post) => (
+            <Link href={`/post/${post._id}`} key={post._id}>
+              <Posts post={post} recent={true} />
+            </Link>
           ))}
         </div>
       ) : (
