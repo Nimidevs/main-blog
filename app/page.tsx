@@ -1,6 +1,4 @@
-import Footer from "@/components/Footer";
 import Herosection from "@/components/Herosection";
-import Navbar from "@/components/Navbar";
 import Recentposts from "@/components/Recentposts";
 import Sidefeed from "@/components/Sidefeed";
 
@@ -68,11 +66,10 @@ export default async function Home() {
 
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-1">
+    <div>
+      <main>
         <Herosection {...heroSectionProps} />
-        <div className="px-[102] py-20 grid grid-cols-1 md:grid-cols-3">
+        <div className="px-[102px] py-20 grid grid-cols-1 md:grid-cols-3">
           <div className="md:col-span-2 ">
             <h1 className="font-semibold text-xl mb-14">
               <span className="bg-thickgreen text-white px-1">Recently</span>{" "}
@@ -85,7 +82,6 @@ export default async function Home() {
           </div>
         </div>
       </main>
-      <Footer></Footer>
     </div>
   );
 }

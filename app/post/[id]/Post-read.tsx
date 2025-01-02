@@ -7,9 +7,20 @@ import { AiFillInstagram } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoLinkOutline } from "react-icons/io5";
 import avatar from "../../../assets/avatar.png";
+import Posts from "@/components/Posts";
 
-const PostRead = ({ post }: { post: Post }) => {
-  console.log(JSON.parse(post.title).ops, JSON.parse(post.post));
+const PostRead = async ({ post }: { post: Post }) => {
+  let similarPosts;
+  try {
+    const response = await fetch(
+      `http://localhost:8080/api/posts/category/${post.categories[0]._id}`
+    );
+    similarPosts = (await response.json()).posts;
+  } catch (error) {
+    console.log(error);
+  }
+
+  console.log(post.categories, post.author);
 
   const PostConverter = new QuillDeltaToHtmlConverter(
     JSON.parse(post.post).ops
@@ -21,10 +32,8 @@ const PostRead = ({ post }: { post: Post }) => {
   const localPost = PostConverter.convert();
   const title = titleConverter.convert();
 
-  console.log("Post: ", localPost);
-  console.log("Title: ", title);
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-4xl">
       <div className="flex flex-col gap-3">
         <div>
           <span className="bg-lightergreen py-1 px-2 rounded text-[#666666] font-normal text-xs leading-3">
@@ -74,17 +83,20 @@ const PostRead = ({ post }: { post: Post }) => {
 
         <div className="flex-1 border-t border-[#D1E7E5]"></div>
       </div>
-
-      <div>
-        <h1 className="font-semibold text-xl ">
-          <span className="bg-thickgreen text-white px-1">See Related</span>{" "}
-          Posts
-        </h1>
-
+      {similarPosts && similarPosts.length > 0 && (
         <div>
-          
+          <h1 className="font-semibold text-xl ">
+            <span className="bg-thickgreen text-white px-1">See Related</span>{" "}
+            Posts
+          </h1>
+
+          <div className="flex gap-7 mt-14">
+            {similarPosts.slice(0, 2).map((post: Post) => (
+              <Posts key={post._id} post={post} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

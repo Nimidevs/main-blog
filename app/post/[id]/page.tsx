@@ -1,7 +1,5 @@
 import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Sidefeed from "@/components/Sidefeed";
 import PostRead from "./Post-read";
 
@@ -43,9 +41,8 @@ export default async function Page({
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <main className="flex-1 py-20 grid grid-cols-1 md:grid-cols-3 px-[120px]"
+    <div>
+      <main className=" py-20 grid grid-cols-1 md:grid-cols-3 px-[120px] gap-14"
       >
         <div className="md:col-span-2 ">
           <PostRead post={post}/>
@@ -54,7 +51,6 @@ export default async function Page({
           <Sidefeed/>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

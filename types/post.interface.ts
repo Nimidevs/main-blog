@@ -21,10 +21,12 @@ export interface Post {
 }
 
 interface author {
+  _id: string;
   first_name: string;
   last_name: string;
 }
 
 interface categories {
+  _id: string;
   name: string;
 }

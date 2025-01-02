@@ -7,7 +7,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Post } from "@/types/post.interface";
-import Link from "next/link";
 
 interface heroSectionPropTypes {
   featuredPosts?: Post[];
@@ -105,9 +104,7 @@ const Herosection: React.FC<heroSectionPropTypes> = ({
             </div>
           ) : localFeaturedPosts && localFeaturedPosts.length > 0 ? (
             localFeaturedPosts?.map((post) => (
-              <Link href={`/post/${post._id}`} key={post._id}>
-                <Featuredposts post={post} />
-              </Link>
+              <Featuredposts post={post} key={post._id}/>
             ))
           ) : (
             <div>No Featured Posts </div>
@@ -140,9 +137,7 @@ const Herosection: React.FC<heroSectionPropTypes> = ({
               <SwiperSlide key={`slide${index}`}>
                 <div className="flex flex-col gap-7">
                   {postPair.map((post) => (
-                    <Link href={`/post/${post._id}`} key={post._id}>
-                      <TrendingPosts post={post} />
-                    </Link>
+                    <TrendingPosts post={post} key={post._id}/>
                   ))}
                 </div>
               </SwiperSlide>
